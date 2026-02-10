@@ -20,4 +20,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./hero.component.scss'],
     standalone: true
 })
-export class HeroComponent { }
+export class HeroComponent {
+  componentText = $localize `translate menu text for example`;
+
+}

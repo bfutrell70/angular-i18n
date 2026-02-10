@@ -15,7 +15,10 @@ import { HeroComponent } from '../hero/hero.component';
           <img src={{pie.image}} alt="image of {{pie.name}}" i18n-alt/>
           <div class="pie-info">
             <p>{{pie.name}}</p>
-            <p i18n>Ready {{pie.timeRemaining}} minute(s)</p>
+            <p i18n>Ready {pie.timeRemaining, plural,
+               =0 {now}
+               =5 {soon}
+               other {in a while}}</p>
           </div>
         </div>
     </div>
