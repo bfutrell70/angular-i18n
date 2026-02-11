@@ -1,15 +1,15 @@
 <section class="main-content">
-  <h2 i18n>Shopping Cart
+  <h2 i18n="heading|shopping cart heading@@cartHeading">Shopping Cart
     <hr />
   </h2>
   <div class="cart-wrapper" *ngIf="cart$ | async as cart">
     <div class="cart-items-wrapper">
       <div class="cart-item" *ngFor="let item of cart.items; index as i;">
         <div class="cart-item-image-wrapper">
-          <img src={{item.image}} alt="image of {{item.name}}" i18n-alt />
+          <img src={{item.image}} alt="image of {{item.name}}" i18n-alt="alt text|alt text of cart item image@@cartAltItemImage" />
         </div>
         <div class="cart-item-details-wrapper">
-          <p class="cart-item-number" i18n>ITEM #{{i + 1}}</p>
+          <p class="cart-item-number" i18n="item number|cart item number@@cartItemNumber">ITEM #{{i + 1}}</p>
           <p class="cart-item-name">{{item.name}}</p>
           <p class="cart-item-description">{{item.description}}</p>
           <div class="quantity-selector-wrapper">
@@ -18,7 +18,7 @@
               <span>1</span>
               <button>+</button>
             </div>
-            <button class="delete" i18n>Delete</button>
+            <button class="delete" i18n="delete button|remove item from cart@@cartDeleteButton">Delete</button>
           </div>
         </div>
         <div class="cart-item-price-wrapper">
@@ -29,22 +29,22 @@
     <div class="subtotal-wrapper">
       <form>
         <div class="row">
-          <p i18n>Subtotal</p>
+          <p i18n="label|subtotal label@@cartSubtotalLabel">Subtotal</p>
           <p>{{cart.subtotal | currency}}</p>
         </div>
         <div class="row">
-          <p i18n>Shipping</p>
+          <p i18n="label|shipping label@@cartShippingLabel">Shipping</p>
           <p>{{cart.shipping | currency:'USD'}}</p>
         </div>
         <div class="row">
-          <p i18n>Sales Tax</p>
+          <p i18n="label|sales tax label@@cartSalesTaxLabel">Sales Tax</p>
           <p>--</p>
         </div>
         <div class="row">
           <hr />
         </div>
         <div class="row">
-          <p i18n>Estimated Total</p>
+          <p i18n="label|estimated total label@@cartEstimatedTotalLabel">Estimated Total</p>
           <p>{{cart.total | currency}}</p>
         </div>
         <div class="row">
@@ -52,20 +52,19 @@
         </div>
         <div class="row">
           <input type="text" name="discount-code" id="discount-code" placeholder="Discount code or gift card"
-            i18n-placeholder />
-          <button i18n>Apply</button>
+            i18n-placeholder="placeholder|placeholder for discount code or gift card@@cartDiscountCodePlaceholder" />
+          <button i18n="button|apply buton text@@cartApplyButton">Apply</button>
         </div>
         <div class="row">
           <hr>
         </div>
         <div class="row">
-          <input type="submit" name="submit" id="submit" value="Checkout" i18n-value />
+          <input type="submit" name="submit" id="submit" value="Checkout" i18n-value="button|chcekout button text@@cartCheckoutButton" />
         </div>
         @if (cart.items.length > 0) {
           <div class="disclaimer">
-            <p class="disclaimer" i18n>Shipping {cart.items.length, plural, 
-              =1 {one}
-              other {multiple {cart.refrigerated, select, true {refrigerated}, false {non-refreigerated}}}} items</p>
+            <p class="disclaimer" i18n="message|message indicating quantity and if items are refrigerated@@cartDisclaimer">
+              Shipping {cart.items.length, plural, =1 {one} other {multiple {cart.refrigerated, select, true {refrigerated}, false {non-refreigerated}}}} items</p>
           </div>
         }
       </form>
