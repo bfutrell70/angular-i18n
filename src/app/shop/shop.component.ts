@@ -30,6 +30,7 @@ import { HeroComponent } from '../hero/hero.component';
 })
 export class ShopComponent {
   private piesService = inject(PiesService);
+
   public piesOfTheWeek = this.piesService.getSpecials();
 
   public today = new Date();
